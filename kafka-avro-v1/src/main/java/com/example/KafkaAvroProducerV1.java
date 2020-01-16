@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.Properties;
+import java.util.Random;
 
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import org.apache.kafka.clients.producer.Callback;
@@ -22,9 +23,11 @@ public class KafkaAvroProducerV1 {
 
 		KafkaProducer<String, Customer> producer = new KafkaProducer<String, Customer>(props);
 		String topic = "customer-avro";
+		final String[] firstNames = {"Le", "Sa", "Ge", "Go", "Aa", "Za", "Po", "Pe"};
+		Random random = new Random();
 
 		Customer customer = Customer.newBuilder()
-				.setFirstName("Le")
+				.setFirstName(firstNames[random.nextInt(7)])
 				.setLastName("Li")
 				.setAge(43)
 				.setWeight(160f)
