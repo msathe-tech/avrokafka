@@ -42,7 +42,7 @@ public class KafkaAvroProducerV1 {
 			@Override
 			public void onCompletion(RecordMetadata recordMetadata, Exception e) {
 				if(e == null) {
-					System.out.println("Sent!");
+					System.out.println("Customer V1 Sent!");
 					System.out.println(recordMetadata.toString());
 				} else {
 					System.out.println(e.getMessage());
